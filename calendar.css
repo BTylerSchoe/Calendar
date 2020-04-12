@@ -1,0 +1,71 @@
+ /* size of body element */
+ body {
+    width: auto;
+    height: auto;
+  }
+
+ /* calendar styling */
+  
+  tr, td {
+      border: 1px solid black;
+      border-width: 1px;
+      color: black;
+  }
+
+  .title {
+    background-color: grey;
+    height: 40px;
+    font-size: 2em;
+    padding: 2px;
+  }
+
+  #calendarHeaders {
+    border: 4px ridge black;
+  }
+
+  table {
+      position: relative;
+      height: 70vh;
+      top: 95px;
+      width: 70%;
+      background-color: grey;
+      /* border-radius: 10px; */
+  }  
+
+  tbody {
+      background-color: white;
+      border: 4px ridge;
+  } 
+
+  td {
+      width: 90px;
+  } 
+
+
+  /* modal/pop-up styling */
+  .out-of-view {
+      visibility: hidden;
+  }
+  .in-view {
+      visibility: visible;
+  }
+
+  #modal-custom {
+      position:fixed; 
+      z-index: 1;
+      top: 20vh;
+      left: 5vw;
+      width: 90vw;
+      height: 60vh;
+      background-color: rgb(176, 223, 255); 
+      border: 2px solid slategrey;  
+      overflow:scroll;
+  }
+
+  #close-button {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    border: 1;
+    background-color: white;
+  }
