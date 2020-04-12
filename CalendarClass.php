@@ -38,67 +38,67 @@ class Calendar {
     private $output = null;
 
 
-    function set_original_year() {
+    private function set_original_year() {
         $this->originalYear = date("Y"); // never changes from the current year
     }
 
-    function get_original_year() {
+    private function get_original_year() {
         return $this->originalYear;
     }
 
-    function set_year() {
+    private function set_year() {
         $this->year = date("Y");
     }
 
-    function get_year() {
+    private function get_year() {
         return $this->year;
     }
 
-    function set_month() {
+    private function set_month() {
         $this->month = date("n");
     }
 
-    function get_month() {
+    private function get_month() {
         return $this->month;
     }
 
-    function set_day() {
+    private function set_day() {
         $this->day = date('d')-1;
     }
 
-    function get_day() {
+    private function get_day() {
         return $this->day;
     }
 
-    function set_current_year($year) {
+    private function set_current_year($year) {
         $this->currentYear = $year;
     }
 
-    function get_current_year() {
+    private function get_current_year() {
         return $this->currentYear;
     }
 
-    function set_current_month($month) {
+    private function set_current_month($month) {
         $this->currentMonth = $month;
     }
 
-    function get_current_month() {
+    private function get_current_month() {
         return $this->currentMonth;
     }
 
-    function set_days_in_month($currentMonth, $currentYear) {
+    private function set_days_in_month($currentMonth, $currentYear) {
         $this->daysInMonth = cal_days_in_month(CAL_GREGORIAN,$currentMonth,$currentYear);
     }
 
-    function get_days_in_month() {
+    private function get_days_in_month() {
         return $this->daysInMonth;
     }
 
-    function set_first_day_of_month($currentYear, $currentMonth) {
+    private function set_first_day_of_month($currentYear, $currentMonth) {
         $this->firstDayOfMonth = date('N',strtotime($currentYear.'-'.$currentMonth.'-01'));
     }
 
-    function get_first_day_of_month() {
+    private function get_first_day_of_month() {
         return $this->firstDayOfMonth;
     }
 
@@ -109,7 +109,7 @@ class Calendar {
 
 
 
-    function create_navigation($currentMonth, $currentYear, $originalYear, $month) {
+    private function create_navigation($currentMonth, $currentYear, $originalYear, $month) {
 
         // used when changing to the next or last month does not change the year e.g. going from January to December of same year
         if($currentMonth < 12 && $currentMonth > 1) {
@@ -143,11 +143,7 @@ class Calendar {
     }
 
     // $firstDayOfMonth, $daysInMonth, $dayOffset, $counter, $currentDay, $month, $currentMonth, $day, $daysOfTheWeek
-    function show() {
-
-        // Start the session
-        session_start();
-
+    public function show() {
 
         $this->set_original_year();
         $this->set_year();
@@ -251,8 +247,6 @@ class Calendar {
         // display the calendar
         return $this->output;
 
-                    // destroy the session
-                    session_destroy();
 
     }
 
